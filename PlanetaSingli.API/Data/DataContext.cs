@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using PortalRandkowy.API.Models;
+using PlanetaSingli.API.Models;
 
-namespace PortalRandkowy.API.Data
+namespace PlanetaSingli.API.Data
 {
     public class DataContext : DbContext
     {
@@ -11,5 +11,6 @@ namespace PortalRandkowy.API.Data
         }
 
         public DbSet<Value> Values { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

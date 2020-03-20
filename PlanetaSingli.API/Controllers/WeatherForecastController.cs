@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace PortalRandkowy.API.Controllers
+namespace PlanetaSingli.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -10,10 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using PortalRandkowy.API.Data;
+using PlanetaSingli.API.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace PortalRandkowy.API
+namespace PlanetaSingli.API
 {
     public class Startup
     {

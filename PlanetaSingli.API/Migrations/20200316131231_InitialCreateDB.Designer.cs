@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PortalRandkowy.API.Data;
+using PlanetaSingli.API.Data;
 
-namespace PortalRandkowy.API.Migrations
+namespace PlanetaSingli.API.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20200316131231_InitialCreateDB")]
@@ -17,7 +17,7 @@ namespace PortalRandkowy.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2");
 
-            modelBuilder.Entity("PortalRandkowy.API.Models.Value", b =>
+            modelBuilder.Entity("PlanetaSingli.API.Models.Value", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

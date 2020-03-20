@@ -3,7 +3,7 @@
   "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
-    "PortalRandkowy-SPA": {
+    "PlanetaSingli-SPA": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/PortalRandkowy-SPA",
+            "outputPath": "dist/PlanetaSingli-SPA",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "PortalRandkowy-SPA:build"
+            "browserTarget": "PlanetaSingli-SPA:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "PortalRandkowy-SPA:build:production"
+              "browserTarget": "PlanetaSingli-SPA:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PortalRandkowy-SPA:build"
+            "browserTarget": "PlanetaSingli-SPA:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "PortalRandkowy-SPA:serve"
+            "devServerTarget": "PlanetaSingli-SPA:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "PortalRandkowy-SPA:serve:production"
+              "devServerTarget": "PlanetaSingli-SPA:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "PortalRandkowy-SPA"
+  "defaultProject": "PlanetaSingli-SPA"
 }

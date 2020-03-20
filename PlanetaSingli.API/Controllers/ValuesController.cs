@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PortalRandkowy.API.Data;
-using PortalRandkowy.API.Models;
+using PlanetaSingli.API.Data;
+using PlanetaSingli.API.Models;
 
-namespace PortalRandkowy.API.Controllers
+namespace PlanetaSingli.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

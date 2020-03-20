@@ -1,6 +1,6 @@
 using System;
 
-namespace PortalRandkowy.API
+namespace PlanetaSingli.API
 {
     public class WeatherForecast
     {

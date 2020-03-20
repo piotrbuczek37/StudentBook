@@ -1,4 +1,4 @@
-namespace PortalRandkowy.API.Models
+namespace PlanetaSingli.API.Models
 {
     public class Value
     {
