@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div *ngIf="!registerMode" style="text-align: center;">
+  <div @myInsertRemoveTrigger *ngIf="!registerMode" style="text-align: center;">
     <h1>Tutaj znajdziesz odpowiednią osobę</h1>
     <p class="lead">Za chwilę będziesz mógł sprawdzić kto najlepiej do ciebie pasuje. Wystarczy się tylko zarejestrować!</p>
     <div class="text-center">
@@ -8,10 +8,10 @@
     </div>
   </div>
 
-  <div *ngIf="registerMode" class="container">
+  <div @myInsertRemoveTrigger *ngIf="registerMode" class="container fixed-top" style="margin-top: 8%;"> <!--Dodać responsywność-->
     <div class="row justify-content-center">
       <div class="col-4">
-        <app-register></app-register>
+        <app-register [valuesFromHome]="values"></app-register>
       </div>
     </div>
   </div>
