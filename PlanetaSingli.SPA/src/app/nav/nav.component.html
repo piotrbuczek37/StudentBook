@@ -10,8 +10,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Wiadomości</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()">Wyloguj</a>
+      <li class="nav-item" *ngIf="loggedIn()">
+        <a class="nav-link" href="#" (click)="logout()">Wyloguj</a>
       </li>
     </ul>
 
