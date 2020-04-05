@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace PlanetaSingli.API
 {
@@ -31,7 +33,16 @@ namespace PlanetaSingli.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(setupAction => {
+                setupAction.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+            // services.AddControllers().AddJsonOptions(opt => {
+            //     opt.JsonSerializerOptions.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //     // opt.JsonSerializerOptions.Converters.Add(JsonConvert.SerializeObject)
+            // });
+            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(opt => {
+            //     opt.JsonSerializerOptions = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            // });
             services.AddCors();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository,AuthRepository>();

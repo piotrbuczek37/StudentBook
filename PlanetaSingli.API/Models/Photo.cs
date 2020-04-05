@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 
 namespace PlanetaSingli.API.Models
 {
@@ -11,6 +12,7 @@ namespace PlanetaSingli.API.Models
         public bool IsMain { get; set; }
 
 
+        [JsonProperty(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)]
         public User User { get; set; }
         public int UserId { get; set; }
     }
