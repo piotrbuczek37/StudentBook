@@ -17,6 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Newtonsoft.Json;
 using System.Text.Json;
+using AutoMapper;
 
 namespace PlanetaSingli.API
 {
@@ -44,6 +45,7 @@ namespace PlanetaSingli.API
             //     opt.JsonSerializerOptions = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             // });
             services.AddCors();
+            services.AddAutoMapper();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
