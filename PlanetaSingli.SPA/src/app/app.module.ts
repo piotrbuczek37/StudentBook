@@ -11,19 +11,33 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      UserListComponent
    ],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000'],
+            blacklistedRoutes: ['localhost:5000/api/auth']
+         }
+      })
    ],
    providers: [
       AuthService, 
