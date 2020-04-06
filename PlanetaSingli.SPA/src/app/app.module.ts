@@ -17,6 +17,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { LikesComponent } from './likes/likes.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { AuthGuard } from './_guards/auth.guard';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -49,7 +50,8 @@ export function tokenGetter() {
    providers: [
       AuthService, 
       AlertifyService,
-      UserService
+      UserService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent
