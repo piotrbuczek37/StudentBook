@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Zalogowano do aplikacji');
     }, error => {
-      this.alertify.error('Wystapil blad');
+      this.alertify.error(error);
     }, () => {
       this.router.navigate(['/uzytkownicy']);
     });
