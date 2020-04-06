@@ -49,7 +49,7 @@ namespace PlanetaSingli.API.Dtos
         public string FriendsWouldDescribeMe { get; set; }
 
         //Zdjęcia
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotosForDetailsDto> Photos { get; set; }
         public string PhotoUrl {get; set;}
     }
 }
