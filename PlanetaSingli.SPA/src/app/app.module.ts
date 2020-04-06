@@ -20,6 +20,7 @@ import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { UserCardComponent } from './users/user-card/user-card.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -33,7 +34,8 @@ export function tokenGetter() {
       RegisterComponent,
       UserListComponent,
       MessagesComponent,
-      LikesComponent
+      LikesComponent,
+      UserCardComponent
    ],
    imports: [
       BrowserModule,
