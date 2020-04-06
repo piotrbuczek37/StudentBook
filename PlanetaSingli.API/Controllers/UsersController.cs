@@ -26,11 +26,9 @@ namespace PlanetaSingli.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            throw new Exception("Generujemy błąd");
-
-            var users = await _repo.GetUsers();
-            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
-            return Ok(usersToReturn);
+                var users = await _repo.GetUsers();
+                var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+                return Ok(usersToReturn);
         }
 
         [HttpGet("{id}")]
