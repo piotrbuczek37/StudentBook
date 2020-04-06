@@ -13,6 +13,10 @@ import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MessagesComponent } from './messages/messages.component';
+import { LikesComponent } from './likes/likes.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -24,7 +28,9 @@ export function tokenGetter() {
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      UserListComponent
+      UserListComponent,
+      MessagesComponent,
+      LikesComponent
    ],
    imports: [
       BrowserModule,
@@ -37,7 +43,8 @@ export function tokenGetter() {
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
-      })
+      }),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService, 
