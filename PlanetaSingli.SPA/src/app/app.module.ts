@@ -25,6 +25,8 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { UserDetailsResolver } from './_resolvers/user-details.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -40,7 +42,8 @@ export function tokenGetter() {
       MessagesComponent,
       LikesComponent,
       UserCardComponent,
-      UserDetailsComponent
+      UserDetailsComponent,
+      UserEditComponent
    ],
    imports: [
       BrowserModule,
@@ -66,7 +69,8 @@ export function tokenGetter() {
       AuthGuard,
       ErrorInterceptorProvider,
       UserDetailsResolver,
-      UserListResolver
+      UserListResolver,
+      UserEditResolver
    ],
    bootstrap: [
       AppComponent
