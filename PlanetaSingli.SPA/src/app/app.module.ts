@@ -24,6 +24,7 @@ import { UserCardComponent } from './users/user-card/user-card.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserDetailsResolver } from './_resolvers/user-details.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -55,7 +56,8 @@ export function tokenGetter() {
       }),
       RouterModule.forRoot(appRoutes),
       BsDropdownModule.forRoot(),
-      TabsModule.forRoot()
+      TabsModule.forRoot(),
+      NgxGalleryModule
    ],
    providers: [
       AuthService, 
