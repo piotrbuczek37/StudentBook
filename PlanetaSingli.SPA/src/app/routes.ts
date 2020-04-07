@@ -9,13 +9,14 @@ import { UserDetailsResolver } from './_resolvers/user-details.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], children: [
         {path: 'uzytkownicy', component: UserListComponent, resolve: {users: UserListResolver}},
         {path: 'uzytkownicy/:id', component: UserDetailsComponent, resolve: {user: UserDetailsResolver}},
-        {path: 'edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
+        {path: 'edycja', component: UserEditComponent, resolve: {user: UserEditResolver}, canDeactivate: [PreventUnsavedChangesGuard]},
         {path: 'polubienia', component: LikesComponent},
         {path: 'wiadomosci', component: MessagesComponent}
     ]},
