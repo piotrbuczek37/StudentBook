@@ -20,6 +20,7 @@ namespace PlanetaSingli.API.Helpers
                 opt.ResolveUsing(src => src.DateOfBirth.CalculateAge());
             });
             CreateMap<Photo, PhotosForDetailsDto>();
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }
