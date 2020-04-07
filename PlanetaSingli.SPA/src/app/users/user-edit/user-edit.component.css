@@ -1,0 +1,17 @@
+.img-thumbnail{
+    margin: 15px;
+    width: 90%;
+    height: 90%;
+}
+
+.card-body {
+    padding: 0 15px;
+}
+
+textarea{
+    width: 90%;
+}
+
+.alert{
+    font-size: large;
+}
