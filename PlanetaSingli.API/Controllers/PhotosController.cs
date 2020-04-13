@@ -39,7 +39,7 @@ namespace PlanetaSingli.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userId, PhotoForCreateDto photoForCreateDto)
+        public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm]PhotoForCreateDto photoForCreateDto)
         {
             if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
             {
@@ -77,7 +77,7 @@ namespace PlanetaSingli.API.Controllers
             if(await _repository.SaveAll())
             {
                 var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
-                return CreatedAtRoute("GetPhoto", new {id = photo.Id}, photoToReturn);
+                return CreatedAtRoute(nameof(GetPhoto), new {userId ,id = photo.Id}, photoToReturn);
             }
             return BadRequest("Błąd dodawania zdjęcia");
         }
