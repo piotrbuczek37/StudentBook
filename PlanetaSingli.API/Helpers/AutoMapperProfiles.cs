@@ -21,6 +21,8 @@ namespace PlanetaSingli.API.Helpers
             });
             CreateMap<Photo, PhotosForDetailsDto>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<PhotoForCreateDto, Photo>();
         }
     }
 }
