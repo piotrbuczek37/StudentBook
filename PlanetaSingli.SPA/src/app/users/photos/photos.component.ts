@@ -37,6 +37,21 @@ export class PhotosComponent implements OnInit {
       autoUpload: false,
       maxFileSize: 10 * 1024 * 1024
     });
+
+    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false;};
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if(response){
+        const resp: Photo = JSON.parse(response);
+        const photo = {
+          id: resp.id,
+          url: resp.url,
+          dateAdded: resp.dateAdded,
+          description: resp.description,
+          isMain: resp.isMain
+        };
+        this.photos.push(photo);
+      }
+    };
   }
 
 }

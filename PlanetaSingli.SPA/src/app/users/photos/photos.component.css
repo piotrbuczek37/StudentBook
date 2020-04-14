@@ -6,3 +6,11 @@ img.img-thumbnail {
 button{
     width: 100px;
 }
+
+.nv-file-over {
+    border: dotted 3px green;
+}
+
+input[type=file]{
+    color: transparent;
+}

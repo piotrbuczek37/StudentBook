@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row mt-3">
  
   <div class="col-md-3">
 
@@ -18,7 +18,7 @@
            [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
            (fileOver)="fileOverBase($event)"
            [uploader]="uploader"
-           class="well my-drop-zone">
+           class="card bg-faded p-3 text-center my-drop-zone">
           Upuść tutaj
       </div>
 
@@ -29,7 +29,7 @@
       <input type="file" ng2FileSelect [uploader]="uploader" />
   </div>
 
-  <div class="col-md-9" style="margin-bottom: 40px">
+  <div class="col-md-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
 
       <h3>Kolejka</h3>
       <p>Elementów kolejki: {{ uploader?.queue?.length }}</p>
@@ -40,8 +40,6 @@
               <th width="50%">Nazwa</th>
               <th>Rozmiar</th>
               <th>Postęp</th>
-              <th>Status</th>
-              <th>Akcje</th>
           </tr>
           </thead>
           <tbody>
@@ -53,25 +51,6 @@
                       <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
                   </div>
               </td>
-              <td class="text-center">
-                  <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                  <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                  <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-              </td>
-              <td nowrap>
-                  <button type="button" class="btn btn-success btn-xs"
-                          (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                      <span class="glyphicon glyphicon-upload"></span> Wgraj
-                  </button>
-                  <button type="button" class="btn btn-warning btn-xs"
-                          (click)="item.cancel()" [disabled]="!item.isUploading">
-                      <span class="glyphicon glyphicon-ban-circle"></span> Anuluj
-                  </button>
-                  <button type="button" class="btn btn-danger btn-xs"
-                          (click)="item.remove()">
-                      <span class="glyphicon glyphicon-trash"></span> Usuń
-                  </button>
-              </td>
           </tr>
           </tbody>
       </table>
@@ -79,7 +58,7 @@
       <div>
           <div>
               Postęp:
-              <div class="progress" style="">
+              <div class="progress mb-4">
                   <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
               </div>
           </div>
