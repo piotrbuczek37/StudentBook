@@ -89,5 +89,38 @@ namespace PlanetaSingli.API.Controllers
             var photoForReturn = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
             return Ok(photoForReturn);
         }
+
+        [HttpPost("{id}/setMain")]
+        public async Task<IActionResult> SetMainPhoto(int userId, int id)
+        {
+            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            {
+                return Unauthorized();
+            }
+
+            var user = await _repository.GetUser(userId);
+
+            if (!user.Photos.Any(p => p.Id == id))
+            {
+                return Unauthorized();
+            }
+
+            var photoFromRepo = await _repository.GetPhoto(id);
+
+            if(photoFromRepo.IsMain)
+            {
+                return BadRequest("To zdjęcię już jest ustawione jako profilowe");
+            }
+
+            var currentMainPhoto = await _repository.GetMainPhotoForUser(userId);
+            currentMainPhoto.IsMain = false;
+            photoFromRepo.IsMain = true;
+
+            if(await _repository.SaveAll())
+            {
+                return NoContent();
+            }
+            return BadRequest("Nie udało się ustawić zdjęcia jako profilowe");
+        }
     }
 }

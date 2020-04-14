@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PlanetaSingli.API.Models;
@@ -12,6 +13,11 @@ namespace PlanetaSingli.API.Data
         public UserRepository(DataContext context) : base (context)
         {
             _context = context;
+        }
+
+        public async Task<Photo> GetMainPhotoForUser(int userId)
+        {
+            return await _context.Photos.Where(u => u.Id == userId).FirstOrDefaultAsync(p => p.IsMain);
         }
 
         public async Task<Photo> GetPhoto(int id)
