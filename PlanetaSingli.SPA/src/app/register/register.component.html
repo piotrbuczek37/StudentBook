@@ -20,8 +20,42 @@
     <div class="invalid-feedback">Hasła muszą być identyczne</div>
   </div>
 
+  <div class="form-group">
+    <label class="control-label" style="margin-right: 10px;">Płeć: </label>
+    <label class="radio-inline">
+      <input class="mr-1" type="radio" value="male" formControlName="gender" checked>Mężczyzna
+    </label>
+    <label class="radio-inline">
+      <input class="mr-1" type="radio" value="female" formControlName="gender">Kobieta
+    </label>
+  </div>
+
+  <div class="form-group">
+    <input type="date" class="form-control" placeholder="Data urodzenia" formControlName="dateOfBirth" 
+    [ngClass]="{ 'is-invalid': registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched}">
+    <div class="invalid-feedback">Podaj datę urodzenia</div>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Znak zodiaku" formControlName="zodiacSign" 
+    [ngClass]="{ 'is-invalid': registerForm.get('zodiacSign').errors && registerForm.get('zodiacSign').touched}">
+    <div class="invalid-feedback">Podaj znak zodiaku</div>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Miasto" formControlName="city" 
+    [ngClass]="{ 'is-invalid': registerForm.get('city').errors && registerForm.get('city').touched}">
+    <div class="invalid-feedback">Podaj miasto</div>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Kraj" formControlName="country" 
+    [ngClass]="{ 'is-invalid': registerForm.get('country').errors && registerForm.get('country').touched}">
+    <div class="invalid-feedback">Podaj kraj</div>
+  </div>
+
   <div class="form-group text-center">
-    <button class="btn btn-success" type="submit">Zarejestruj</button>
+    <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Zarejestruj</button>
     <button class="btn btn-def" type="button" (click)="cancel()">Anuluj</button>
   </div>
 </form>
