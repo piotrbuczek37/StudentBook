@@ -2,7 +2,7 @@
   <div class="col-sm-2" *ngFor="let photo of photos">
     <img src="{{photo.url}}" alt="{{photo.description}}" class="img-thumbnail p-1">
     <div class="text-center">
-      <button type="button" class="btn btn-sm btn-primary">Ustaw jako profilowe</button>
+      <button type="button" class="btn btn-sm btn-primary" (click)="setMainPhoto(photo)" [disabled]="photo.isMain">Ustaw jako profilowe</button>
       <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i>Usuń zdjęcie</button>
     </div>
   </div>
