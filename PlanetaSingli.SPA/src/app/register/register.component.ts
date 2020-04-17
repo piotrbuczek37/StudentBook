@@ -21,7 +21,11 @@ export class RegisterComponent implements OnInit {
       username: new FormControl('', Validators.required),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
       confirmPassword: new FormControl('', Validators.required)
-    });
+    }, this.passwordEqualsValidator);
+  }
+
+  passwordEqualsValidator(fg: FormGroup){
+    return fg.get('password').value === fg.get('confirmPassword').value ? null : { mismatch: true};
   }
 
   register(){
