@@ -2,19 +2,26 @@
   <h2 class="text-center text-primary">Zapisz się</h2>
   <hr>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Nazwa użytkownika" formControlName="username">
+    <input type="text" class="form-control" placeholder="Nazwa użytkownika" formControlName="username" 
+    [ngClass]="{ 'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched}">
+    <div class="invalid-feedback">Podaj nazwę użytkownika</div>
   </div>
+
   <div class="form-group">
-    <input type="password" class="form-control" placeholder="Hasło" formControlName="password">
+    <input type="password" class="form-control" placeholder="Hasło" formControlName="password"
+    [ngClass]="{ 'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}">
+    <div class="invalid-feedback">Hasło musi się składać z min. 6 znaków oraz z max. 12 znaków</div>
   </div>
+
   <div class="form-group">
-    <input type="password" class="form-control" placeholder="Potwierdź hasło" formControlName="confirmPassword">
+    <input type="password" class="form-control" placeholder="Potwierdź hasło" formControlName="confirmPassword"
+    [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
+      || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}">
+    <div class="invalid-feedback">Hasła muszą być identyczne</div>
   </div>
+
   <div class="form-group text-center">
     <button class="btn btn-success" type="submit">Zarejestruj</button>
     <button class="btn btn-def" type="button" (click)="cancel()">Anuluj</button>
   </div>
 </form>
-
-<p>{{registerForm.value | json}}</p>
-<p>{{registerForm.status | json}}</p>
