@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-group">
-    <input type="date" class="form-control" placeholder="Data urodzenia" formControlName="dateOfBirth" 
+    <input type="text" class="form-control" placeholder="Data urodzenia" formControlName="dateOfBirth" bsDatepicker
     [ngClass]="{ 'is-invalid': registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched}">
     <div class="invalid-feedback">Podaj datę urodzenia</div>
   </div>
