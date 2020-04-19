@@ -3,7 +3,7 @@
     <h6 class="card-title text-center mb-1"><i class="fa fa-user"></i>{{user.username}}, {{user.age}}</h6>
   </div>
   <div class="card-img-wrapper">
-    <img src="{{user.photoUrl}}" class="card-img-top" alt="{{user.username}}">
+    <img src="{{user.photoUrl || '../../../../../assets/defaultUserPhoto.png'}}" class="card-img-top" alt="{{user.username}}">
 
       <ul class="list-inline text-center user-icons animate">
         <li class="list-inline-item">
