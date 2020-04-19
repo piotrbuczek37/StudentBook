@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using PlanetaSingli.API.Data;
 using PlanetaSingli.API.Dtos;
 using PlanetaSingli.API.Helpers;
+using PlanetaSingli.API.Models;
 
 namespace PlanetaSingli.API.Controllers
 {
@@ -66,6 +67,39 @@ namespace PlanetaSingli.API.Controllers
                 return NoContent();
             }
             throw new Exception("Zapisywanie do bazy danych nie powiodło się");
+        }
+
+        [HttpPost("{id}/like/{recipientId}")]
+        public async Task<IActionResult> LikeUser(int id, int recipientId)
+        {
+            if(id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            {
+                return Unauthorized();
+            }
+
+            var like = await _repo.GetLike(id, recipientId);
+
+            if(like != null)
+            {
+                return BadRequest("Użytkownik jest już polubiony");
+            }
+            if(await _repo.GetUser(recipientId) == null)
+            {
+                return NotFound();
+            }
+
+            like = new Like
+            {
+                UserLikesId = id,
+                UserLikedId = recipientId
+            };
+            _repo.Add<Like>(like);
+
+            if(await _repo.SaveAll())
+            {
+                return Ok();
+            }
+            return BadRequest("Nie można polubić użytkownika");
         }
     }
 }
