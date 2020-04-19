@@ -19,7 +19,7 @@ import { LikesComponent } from './likes/likes.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, PaginationModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/user-card/user-card.component';
@@ -68,6 +68,7 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
+      PaginationModule.forRoot(),
       TabsModule.forRoot(),
       TimeagoModule.forRoot(),
       NgxGalleryModule,
