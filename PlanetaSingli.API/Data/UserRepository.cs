@@ -36,7 +36,7 @@ namespace PlanetaSingli.API.Data
 
         public async Task<PagedList<User>> GetUsers(UserParams userParams)
         {
-            var users = _context.Users.Include(p => p.Photos).AsQueryable();
+            var users = _context.Users.Include(p => p.Photos).OrderByDescending(u => u.LastActive).AsQueryable();
             users = users.Where(u => u.Id != userParams.UserId);
             users = users.Where(u => u.Gender == userParams.Gender);
 
@@ -50,6 +50,19 @@ namespace PlanetaSingli.API.Data
             if(userParams.ZodiacSign != "Wszystkie")
             {
                 users = users.Where(u => u.ZodiacSign == userParams.ZodiacSign);
+            }
+
+            if(!string.IsNullOrEmpty(userParams.OrderBy))
+            {
+                switch(userParams.OrderBy)
+                {
+                    case "created":
+                        users = users.OrderByDescending(u => u.Created);
+                        break;
+                    default:
+                        users = users.OrderByDescending(u => u.LastActive);
+                        break;
+                }
             }
         
             return await PagedList<User>.CreateListAsync(users, userParams.PageNumber, userParams.PageSize);
