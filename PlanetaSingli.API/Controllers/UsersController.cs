@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PlanetaSingli.API.Data;
 using PlanetaSingli.API.Dtos;
+using PlanetaSingli.API.Helpers;
 
 namespace PlanetaSingli.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
