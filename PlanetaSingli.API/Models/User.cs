@@ -51,5 +51,7 @@ namespace PlanetaSingli.API.Models
 
         //Zdjęcia
         public ICollection<Photo> Photos { get; set; }
+        public ICollection<Like> UserLikes { get; set; }
+        public ICollection<Like> UserLiked { get; set; }
     }
 }
