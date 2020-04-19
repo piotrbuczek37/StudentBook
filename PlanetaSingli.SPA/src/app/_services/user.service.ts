@@ -29,6 +29,7 @@ getUsers(page?, itemsPerPage?, userParams?): Observable<PaginationResult<User[]>
     params = params.append('maxAge', userParams.maxAge);
     params = params.append('gender', userParams.gender);
     params = params.append('zodiacSign', userParams.zodiacSign);
+    params = params.append('orderBy', userParams.orderBy);
   }
 
   return this.http.get<User[]>(this.baseUrl+'users', {observe: 'response', params})
