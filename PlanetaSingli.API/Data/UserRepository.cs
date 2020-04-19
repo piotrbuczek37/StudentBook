@@ -45,6 +45,18 @@ namespace PlanetaSingli.API.Data
             users = users.Where(u => u.Id != userParams.UserId);
             users = users.Where(u => u.Gender == userParams.Gender);
 
+            if(userParams.UserLikes)
+            {
+                var userLikes = await GetUserLikes(userParams.UserId, userParams.UserLikes);
+                users = users.Where(u => userLikes.Contains(u.Id));
+            }
+
+            if(userParams.UserLiked)
+            {
+                var userLiked = await GetUserLikes(userParams.UserId, userParams.UserLikes);
+                users = users.Where(u => userLiked.Contains(u.Id));
+            }
+
             if(userParams.MinAge != 18 || userParams.MaxAge != 100)
             {
                 var minDate = DateTime.Today.AddYears(-userParams.MaxAge-1);
@@ -71,6 +83,16 @@ namespace PlanetaSingli.API.Data
             }
         
             return await PagedList<User>.CreateListAsync(users, userParams.PageNumber, userParams.PageSize);
+        }
+
+        private async Task<IEnumerable<int>> GetUserLikes(int id, bool userLikes)
+        {
+            var user = await _context.Users.Include(x => x.UserLikes).Include(x => x.UserLiked).FirstOrDefaultAsync(u => u.Id == id);
+            if(userLikes)
+            {
+                return user.UserLikes.Where(u => u.UserLikedId == id).Select(i => i.UserLikesId);
+            }
+            return user.UserLiked.Where(u => u.UserLikesId == id).Select(i => i.UserLikedId);
         }
     }
 }
