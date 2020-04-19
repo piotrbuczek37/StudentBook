@@ -16,7 +16,7 @@ export class UserService {
 
 constructor(private http: HttpClient) { }
 
-getUsers(page?, itemsPerPage?, userParams?): Observable<PaginationResult<User[]>>{
+getUsers(page?, itemsPerPage?, userParams?, likesParam?): Observable<PaginationResult<User[]>>{
   const paginationResult: PaginationResult<User[]> = new PaginationResult<User[]>();
   let params = new HttpParams();
   if(page != null && itemsPerPage != null){
@@ -30,6 +30,14 @@ getUsers(page?, itemsPerPage?, userParams?): Observable<PaginationResult<User[]>
     params = params.append('gender', userParams.gender);
     params = params.append('zodiacSign', userParams.zodiacSign);
     params = params.append('orderBy', userParams.orderBy);
+  }
+
+  if(likesParam === 'UserLikes'){
+    params = params.append('UserLikes', 'true');
+  }
+
+  if(likesParam === 'UserLiked'){
+    params = params.append('UserLiked', 'true');
   }
 
   return this.http.get<User[]>(this.baseUrl+'users', {observe: 'response', params})

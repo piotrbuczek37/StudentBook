@@ -33,6 +33,7 @@ import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.gu
 import { PhotosComponent } from './users/photos/photos.component';
 import { from } from 'rxjs';
 import { TimeagoModule } from 'ngx-timeago';
+import { LikesResolver } from './_resolvers/likes.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -83,7 +84,8 @@ export function tokenGetter() {
       UserDetailsResolver,
       UserListResolver,
       UserEditResolver,
-      PreventUnsavedChangesGuard
+      PreventUnsavedChangesGuard,
+      LikesResolver
    ],
    bootstrap: [
       AppComponent
