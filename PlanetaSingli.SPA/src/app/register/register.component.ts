@@ -15,6 +15,21 @@ export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   user: User;
   registerForm: FormGroup;
+  zodiacSignList = [
+  {value: 'Baran', display: 'Baran'},
+  {value: 'Byk', display: 'Byk'},
+  {value: 'Bliźnięta', display: 'Bliźnięta'},
+  {value: 'Rak', display: 'Rak'},
+  {value: 'Lew', display: 'Lew'},
+  {value: 'Panna', display: 'Panna'},
+  {value: 'Waga', display: 'Waga'},
+  {value: 'Skorpion', display: 'Skorpion'},
+  {value: 'Strzelec', display: 'Strzelec'},
+  {value: 'Koziorożec', display: 'Koziorożec'},
+  {value: 'Wodnik', display: 'Wodnik'},
+  {value: 'Ryby', display: 'Ryby'}
+];
+  userParams: any = {};
 
   constructor(private authService: AuthService, private alertify: AlertifyService, private fb: FormBuilder, private router: Router) { }
 
@@ -27,7 +42,7 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       confirmPassword: ['', Validators.required],
-      gender: ['male'],
+      gender: ['mężczyzna'],
       dateOfBirth: [null, Validators.required],
       zodiacSign: ['', Validators.required],
       city: ['', Validators.required],
