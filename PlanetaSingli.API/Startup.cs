@@ -99,6 +99,17 @@ namespace PlanetaSingli.API
 
             app.UseAuthentication();
 
+            app.UseStaticFiles();
+
+            app.UseDefaultFiles();
+
+            // app.UseRouting(routes => {
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa",
+            //         defaults: new {conroller = "Fallback", action = "Index"}
+            //     );
+            // });
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -106,6 +117,14 @@ namespace PlanetaSingli.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                
+                endpoints.MapControllerRoute(
+                    name: "spa",
+                    pattern: "{controller}/{action}/{id?}",
+                    defaults: new {controller = "Fallback", action = "Index"}
+                );
+                // endpoints.MapFallbackToController("Index","Fallback");
+                // endpoints.MapFallbackToController(name: "spa", defaults: new {controller = "Fallback", action = "Index"});
             });
         }
     }
