@@ -31,7 +31,6 @@
         <div class="card-footer">
           <div class="btn-group d-flex">
             <button class="btn btn-success w-100" (click)="sendLike(user.id)">Polub</button>
-            <button class="btn btn-primary w-100">Czat</button>
           </div>
         </div>
       </div>
@@ -119,9 +118,6 @@
           </tab>
           <tab heading="Zdjęcia">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
-          </tab>
-          <tab heading="Wiadomości">
-            <p>Wiadomości</p>
           </tab>
         </tabset>
       </div>
