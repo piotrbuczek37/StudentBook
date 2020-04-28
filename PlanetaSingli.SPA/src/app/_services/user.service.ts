@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { PaginationResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
+import { Post } from '../_models/post';
 
 
 @Injectable({
@@ -56,6 +57,14 @@ getUsers(page?, itemsPerPage?, userParams?, likesParam?): Observable<PaginationR
 
 getUser(id: number): Observable<User> {
   return this.http.get<User>(this.baseUrl + 'users/' + id);
+}
+
+getPosts(): Observable<Post[]>{
+  return this.http.get<Post[]>(this.baseUrl + 'posts/');
+}
+
+sendPost(model: any){
+  return this.http.post(this.baseUrl + 'posts', model);
 }
 
 updateUser(id: number, user: User){

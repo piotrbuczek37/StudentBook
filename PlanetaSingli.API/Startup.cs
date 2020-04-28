@@ -55,6 +55,7 @@ namespace PlanetaSingli.API
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                                     .AddJwtBearer(options => {
                                         options.TokenValidationParameters = new TokenValidationParameters

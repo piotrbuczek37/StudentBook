@@ -1,0 +1,30 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Posty użytkowników</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="postForm" (ngSubmit)="sendPost()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Co porabiasz?" formControlName="content" 
+          [ngClass]="{ 'is-invalid': postForm.get('content').errors && postForm.get('content').touched}">
+          <div class="invalid-feedback">Podaj zawartość posta</div>
+        </div>
+        <div class="form-group text-center">
+          <button class="btn btn-danger" type="submit" [disabled]="!postForm.valid">Napisz post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let post of posts; let i = index" class="col-md-12 text-center">
+      <div class="post">
+        <p>Napisane przez: <a href="uzytkownicy/{{post.userId}}">{{usernames[i] | titlecase}}</a> dnia {{post.dateAdded | date: "mediumDate" : "pl"}} o godz. {{post.dateAdded | date: "mediumTime" : "pl"}}</p>
+        <h3>{{post.content}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,11 +9,10 @@ namespace PlanetaSingli.API.Data
         {
             
         }
-
-        public DbSet<Value> Values { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<Post> Posts { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Like>().HasKey(k => new {k.UserLikesId, k.UserLikedId});

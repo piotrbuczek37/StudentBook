@@ -14,7 +14,6 @@ import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { JwtModule } from '@auth0/angular-jwt';
-import { MessagesComponent } from './messages/messages.component';
 import { LikesComponent } from './likes/likes.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
@@ -34,6 +33,7 @@ import { PhotosComponent } from './users/photos/photos.component';
 import { from } from 'rxjs';
 import { TimeagoModule } from 'ngx-timeago';
 import { LikesResolver } from './_resolvers/likes.resolver';
+import { PostsComponent } from './posts/posts.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -46,12 +46,12 @@ export function tokenGetter() {
       HomeComponent,
       RegisterComponent,
       UserListComponent,
-      MessagesComponent,
       LikesComponent,
       UserCardComponent,
       UserDetailsComponent,
       UserEditComponent,
-      PhotosComponent
+      PhotosComponent,
+      PostsComponent
    ],
    imports: [
       BrowserModule,

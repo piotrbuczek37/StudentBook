@@ -53,5 +53,6 @@ namespace PlanetaSingli.API.Models
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Like> UserLikes { get; set; }
         public ICollection<Like> UserLiked { get; set; }
+        public ICollection<Post> Posts { get; set; }
     }
 }

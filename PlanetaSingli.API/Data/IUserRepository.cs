@@ -12,5 +12,7 @@ namespace PlanetaSingli.API.Data
          Task<Photo> GetPhoto(int id);
          Task<Photo> GetMainPhotoForUser(int userId);
          Task<Like> GetLike(int userId, int recipientId);
+         Task<Post> GetPost(int id);
+         Task<IEnumerable<Post>> GetPosts();
     }
 }

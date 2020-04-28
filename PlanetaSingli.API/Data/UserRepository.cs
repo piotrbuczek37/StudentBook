@@ -27,6 +27,18 @@ namespace PlanetaSingli.API.Data
             return await _context.Photos.Where(u => u.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
         }
 
+        public async Task<Post> GetPost(int id)
+        {
+            var post = await _context.Posts.FirstOrDefaultAsync(p => p.Id == id);
+            return post;
+        }
+
+        public async Task<IEnumerable<Post>> GetPosts()
+        {
+            var posts = await _context.Posts.OrderByDescending(p => p.DateAdded).ToListAsync();
+            return posts;
+        }
+
         public async Task<Photo> GetPhoto(int id)
         {
             var photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);

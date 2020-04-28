@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-success">
   <div class="container">
-  <a class="navbar-brand" [routerLink]="['/home']">Planeta Singli</a>
+  <a class="navbar-brand" [routerLink]="['/uzytkownicy']">Planeta Singli</a>
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active" >
         <a class="nav-link" [routerLink]="['/uzytkownicy']">Użytkownicy </a>
@@ -9,7 +9,7 @@
         <a class="nav-link" [routerLink]="['/polubienia']" >Polubienia</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/wiadomosci']">Wiadomości</a>
+        <a class="nav-link" [routerLink]="['/posty']">Posty</a>
       </li>
     </ul>
 
