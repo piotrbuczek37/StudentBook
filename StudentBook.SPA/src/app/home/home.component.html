@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div @myInsertRemoveTrigger *ngIf="!registerMode" style="text-align: center;">
+    <h1>Tutaj znajdziesz odpowiednią osobę do nauki</h1>
+    <p class="lead">Rejestracja jest szybka i prosta!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-3" (click)="registerToggle()">Rejestracja</button>
+    </div>
+  </div>
+
+  <div @myInsertRemoveTrigger *ngIf="registerMode" class="container fixed-top" style="margin-top: 8%;">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>
