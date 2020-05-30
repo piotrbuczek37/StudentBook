@@ -59,7 +59,8 @@ Back-end:
 * Entity Framework Core - version 3.1.2
 * AutoMapper - version 4.0.1
 * Cloudinary .NET - version 1.3.1
-* MySQL Database - version 8.0 <br>
+* MySQL Database - version 8.0 
+<p>
 Front-end:
 * Angular - version 9.0.6
 * ng2-file-upload - version 1.3.0
@@ -69,6 +70,7 @@ Front-end:
 * Ngx-bootstrap - version 5.5.0
 * kolkov/ngx-gallery - version 1.1.0
 * AlertifyJS - version 1.13.1
+  </p>
 
 ## Setup
 All you have to do is to go to directory 'StudentBook.API' and then enter the command: 'dotnet run' from terminal.
