@@ -25,6 +25,16 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.createPostForm();
     this.getPosts();
+
+    this.reloadPage();
+  }
+
+  reloadPage(){
+    setTimeout(() => {
+      this.posts = null;
+      this.getPosts();
+      this.reloadPage();
+    }, 3000);
   }
 
   getPosts(){
