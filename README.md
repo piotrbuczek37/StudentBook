@@ -68,7 +68,8 @@ Front-end:
 
 ## Setup
 All you have to do is to go to directory 'StudentBook.API' and then enter the command: 'dotnet run' from terminal.
-The application should build. If build was successful, you can enter in your browser: http://localhost:5000/index.html
+Then on the other terminal go to directory 'StudentBook.SPA' and enter the command: 'ng serve'.
+The application should build. If build was successful, you can enter in your browser: http://localhost:4200/
 And that's it! You can now use the application :)
 
 ## Features
