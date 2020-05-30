@@ -11,11 +11,7 @@
 * [Contact](#contact)
 
 ## General info
-The idea to create a given solution appeared while working in the company - DPD. Many problems have been noticed, among others no communication with the courier and no information regarding the reason why the parcel was not delivered to the indicated address, but only to the Pickup point.
-
-The mobile application supports the work of couriers and streamlines the operations of the DPD courier company. The application is designed for mobile devices with the Android system.
-
-The application provides the location of couriers with a delivery package for clients of courier companies. The application also allows you to check courier information, such as the courier's phone number or car description (for faster identification of the courier in the field) and (soon) sending messages to the courier via the built-in chat. The courier in his panel can manage his packages for delivery, i.e. add or remove delivery addresses from the map and start / stop sharing his location with the customer.
+This is a simplified version of Facebook - StudentBook. You can register in the portal and then use functions such as browsing user profiles, liking them, editing the profile, adding photos, posts, as well as filtering users by age and gender. 
 
 ## Screenshots
 <p align="center">
@@ -57,25 +53,37 @@ The application provides the location of couriers with a delivery package for cl
  </p>
 
 ## Technologies
-* Java - version 11
-* Firebase - version 19.2.1
-* Google Maps Api - version 16.1.0
+Back-end:
+* ASP.NET Core Web Api - version 3.1
+* ASP.NET Core Authentication JWT Bearer - version 3.0
+* Entity Framework Core - version 3.1.2
+* AutoMapper - version 4.0.1
+* Cloudinary .NET - version 1.3.1
+* MySQL Database - version 8.0
+Front-end:
+* Angular - version 9.0.6
+* ng2-file-upload - version 1.3.0
+* auth0/angular-jwt - version 4.1.2
+* Bootstrap - version 4.4.1
+* Font-Awesome - version 4.7.0
+* Ngx-bootstrap - version 5.5.0
+* kolkov/ngx-gallery - version 1.1.0
+* AlertifyJS - version 1.13.1
 
 ## Setup
-The project will be available in the Google Play store in the near future. At the moment the .apk file is available in the bin folder for download as an application demo. To install the application, you only need to allow sharing your location (you must have internet connection and GPS enabled). Your phone must have Android system at least in version 6.0!
-In the application demo you can use the following example data:
-* Package number: 0000987654321W or 0000123456789U
-* Code: 16ff
-
-* Courier ID: kmegdn
-* PIN: 1234
+All you have to do is to go to directory 'StudentBook.API' and then enter the command: 'dotnet run' from terminal.
+The application should build. If build was successful, you can enter in your browser: http://localhost:5000/index.html
+And that's it! You can now use the application :)
 
 ## Features
-List of features ready and TODOs for future development
-* Sharing courier locations with a package
-* Checking courier information, such as courier phone number or car description (for faster identification of courier in the field)
-* Managing packages in the courier's panel for delivery, i.e. adding or removing delivery addresses from the map, and starting / ending location sharing with the customer
-* Secure courier tracking by entering the correct pickup code sent by the company to the phone number selected when posting a package
+List of features ready:
+* Registration and login with tokens
+* Viewing the list of users along with filtering and pagination
+* Liking users and viewing likes
+* Editing a profile
+* Adding photos to the profile and viewing them in the photo gallery
+* Possibility to set the photo as the main one
+* Adding simple posts
 
 ## Status
 Project is: _finished_.
