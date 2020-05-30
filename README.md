@@ -60,7 +60,8 @@ Back-end:
 * AutoMapper - version 4.0.1
 * Cloudinary .NET - version 1.3.1
 * MySQL Database - version 8.0 
-<p>Front-end:</p>
+
+Front-end:
 * Angular - version 9.0.6
 * ng2-file-upload - version 1.3.0
 * auth0/angular-jwt - version 4.1.2
