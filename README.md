@@ -15,41 +15,35 @@ This is a simplified version of Facebook - StudentBook. You can register in the 
 
 ## Screenshots
 <p align="center">
-  <img src="./img/mainmenu.png">
+  <img src="./Screenshots/listauzytkownikow.png">
 </p>
 
 <p align="center">
-<h2>Client section</h2>
-  </p>
-<p align="center">
-  <img src="./img/mainpage.png">
+  <img src="./Screenshots/ekranglowny.png">
+  
+  <img src="./Screenshots/rejestracja.png">
 
-  <img src="./img/code.png">
+  <img src="./Screenshots/posty.png">
+  
+  <img src="./Screenshots/posty2.png">
 
-  <img src="./img/clientposition.png">
+  <img src="./Screenshots/profil.png">
 
-  <img src="./img/courierposition.png">
-
-  <img src="./img/courierinfo.png">
+  <img src="./Screenshots/profilowe.png">
  </p>
 
 <p align="center">
-<h2>Courier section</h2>
-</p>
-<p align="center">
-  <img src="./img/couriersection.png">
+  <img src="./Screenshots/edycja.png">
   
-  <img src="./img/courierdetails.png">
+  <img src="./Screenshots/edycja2.png">
 
-  <img src="./img/courierdetails2.png">
+  <img src="./Screenshots/listauzytkownikow2.png">
 
-  <img src="./img/packagemanager.png">
+  <img src="./Screenshots/galeria.png">
   
-  <img src="./img/courierscanner.png">
+  <img src="./Screenshots/likes.png">
 
-  <img src="./img/courierposition2.png">
-
-  <img src="./img/packageposition.png">
+  <img src="./Screenshots/dodawaniezdjec.png">
  </p>
 
 ## Technologies
