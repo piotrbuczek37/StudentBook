@@ -59,7 +59,7 @@ Back-end:
 * Entity Framework Core - version 3.1.2
 * AutoMapper - version 4.0.1
 * Cloudinary .NET - version 1.3.1
-* MySQL Database - version 8.0
+* MySQL Database - version 8.0 <br>
 Front-end:
 * Angular - version 9.0.6
 * ng2-file-upload - version 1.3.0
